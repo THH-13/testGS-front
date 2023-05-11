@@ -1,0 +1,43 @@
+<h1>Mes groupes de musique préférés</h1>
+
+<label for="file" class="label-file">Importer mes groupes</label>
+<input type="file" id="file" class="input-file" accept=".xlsx" (change)="readExcel($event)"/>
+<br><br>
+<table class="table-striped">
+  <thead>
+  <tr>
+    <th scope="col">Nom du groupe</th>
+    <th scope="col">Origine</th>
+    <th scope="col">Ville</th>
+    <th scope="col">Année début</th>
+    <th scope="col">Année Séparation</th>
+    <th scope="col">Fondateurs</th>
+    <th scope="col">Membres</th>
+    <th scope="col">Courant musical</th>
+    <th scope="col">Présentation</th>
+  </tr>
+  </thead>
+  <tbody *ngFor="let groupeMusique of groupeMusiques">
+  <tr>
+    <td>{{ groupeMusique.nomGroupe}}</td>
+    <td>{{ groupeMusique.origine}}</td>
+    <td>{{ groupeMusique.ville}}</td>
+    <td>{{ groupeMusique.anneeDebut | date:'y'}}</td>
+    <td>{{ groupeMusique.anneeSeparation | date:'y'}}</td>
+    <td>{{ groupeMusique.fondateurs}}</td>
+    <td>{{ groupeMusique.membres}}</td>
+    <td>{{ groupeMusique.courantMusical}}</td>
+    <td>{{ groupeMusique.presentation}}</td>
+    <td>
+    <button  routerLink="/groupe-musique/{{ groupeMusique.id }}">Voir</button>
+    </td>
+    <td>
+      <button  routerLink="/groupe-musique/{{ groupeMusique.id }}">Modifier</button>
+    </td>
+    <td>
+      <button (click)="deleteGroupe(groupeMusique.id)">Supprimer</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
