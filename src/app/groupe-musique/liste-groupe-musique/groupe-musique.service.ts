@@ -11,11 +11,10 @@ import {tap} from "rxjs/operators";
 export class GroupeMusiqueService {
 
   url: string = API_URL;
+  private refreshrequired = new Subject<void>();
 
   constructor(private http: HttpClient) {
   }
-
-  private refreshrequired = new Subject<void>();
 
   refreshRequired() {
     return this.refreshrequired;
@@ -37,8 +36,8 @@ export class GroupeMusiqueService {
     return this.http.get<GroupeMusiqueModel>(this.url + '/groupe_musiques/' + id);
   }
 
-  updateGroupeMusique(groupeMusique: GroupeMusiqueModel): Observable<GroupeMusiqueModel> {
-    return this.http.put<GroupeMusiqueModel>(this.url + '/groupe_musiques/' + groupeMusique.id, groupeMusique);
+  updateGroupeMusique(id:string,groupeMusique: GroupeMusiqueModel): Observable<GroupeMusiqueModel> {
+    return this.http.put<GroupeMusiqueModel>(this.url + '/groupe_musiques/' + id, groupeMusique);
   }
 
   deleteGroupeMusique(id: string): Observable<GroupeMusiqueModel> {
