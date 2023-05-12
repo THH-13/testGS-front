@@ -1,9 +1,43 @@
-<h1>{{groupeMusique.nomGroupe}}</h1>
-<p>{{groupeMusique.origine}}</p>
-<p>{{ groupeMusique.ville}}</p>
-<p>{{ groupeMusique.anneeDebut | date:'y'}}</p>
-<p>{{ groupeMusique.anneeSeparation | date:'y'}}</p>
-<p>{{ groupeMusique.fondateurs}}</p>
-<p>{{ groupeMusique.membres}}</p>
-<p>{{ groupeMusique.courantMusical}}</p>
-<p>{{ groupeMusique.presentation}}</p>
+<h1 class="m-3"> Consulter et Modifier </h1>
+<div class="d-flex justify-content-start p-5">
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+  <label for="nomGroupe" class="form-label">Nom du groupe: </label>
+  <input id="nomGroupe" type="text" class="form-control" formControlName="nomGroupe">
+  </div>
+  <div class="mb-3">
+  <label for="origine" class="form-label">Origine: </label>
+  <input id="origine" type="text" class="form-control" formControlName="origine">
+  </div>
+    <div class="mb-3">
+  <label for="ville" class="form-label">Ville: </label>
+  <input id="ville" type="text" class="form-control" formControlName="ville">
+    </div>
+      <div class="mb-3">
+  <label for="anneeDebut" class="form-label">Année de début: </label>
+  <input id="anneeDebut" type="text" class="form-control" formControlName="anneeDebut" >
+      </div>
+        <div class="mb-3">
+  <label for="anneeSeparation" class="form-label">Origine: </label>
+  <input id="anneeSeparation" type="text" class="form-control" formControlName="anneeSeparation">
+        </div>
+          <div class="mb-3">
+  <label for="fondateurs" class="form-label">Fondateurs: </label>
+  <input id="fondateurs" type="text" class="form-control" formControlName="fondateurs">
+          </div>
+            <div class="mb-3">
+  <label for="membres" class="form-label">Membres</label>
+  <input id="membres" type="text" class="form-control" formControlName="membres">
+            </div>
+              <div class="mb-3">
+  <label for="courantMusical" class="form-label">Courant musical: </label>
+  <input id="courantMusical" type="text" class="form-control" formControlName="courantMusical">
+              </div>
+                <div class="mb-3">
+  <label for="presentation" class="form-label">Présentation: </label>
+  <textarea id="presentation" class="form-control" formControlName="presentation"></textarea>
+                </div>
+  <button type="submit" class="btn btn-primary">Modifier</button>
+</form>
+</div>
+
