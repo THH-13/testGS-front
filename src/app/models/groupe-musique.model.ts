@@ -1,5 +1,5 @@
 export class GroupeMusiqueModel {
-  id?: number;
+  id?: string;
   nomGroupe?: string;
   origine?: string;
   ville?: string;
